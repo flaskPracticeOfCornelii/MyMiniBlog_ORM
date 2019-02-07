@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+
+{% block content1 %}
+
+    <div class="container detail">
+        <div class="row">
+            <div class="col detail-title">Title: {{data.title}}</div>        
+        </div>
+        <div class="row mt-1">
+            <div class="col detail-author">Author: {{data.author}}</div>        
+            <div class="col">Recent Revision: {{data.created_at}}</div>        
+        </div>
+        <div class="row mt-2">
+            <div class="col detail-content">{{data.content}}</div>        
+        </div>
+    </div>
+    
+    <div class="container detail mt-4">
+        <div class="row">
+            <form action="/articles">
+                <input type="submit" value="Back to the list" class="btn btn-success m-1"/>
+            </form>
+            
+            <form action="/articles/{{data.id}}/edit">
+                <input type="submit" value="Edit" class="btn btn-primary m-1"/>
+            </form>
+            
+            <form action="/articles/{{data.id}}/delete">
+                <input type="submit" value="Delete" class="btn btn-danger m-1"/>
+            </form>
+        </div>
+    </div>
+    
+    
+{% endblock%}
