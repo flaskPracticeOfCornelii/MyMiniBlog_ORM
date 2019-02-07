@@ -15,7 +15,8 @@ db.init_app(app)
 
 class Article(db.Model):
     __tablename__ = "articles"
-    id = db.Column(db.Integer,primary_key = True)
+    __table_args__ = {'sqlite_autoincrement': True}
+    id = db.Column(db.Integer,primary_key = True, autoincrement=True)
     title = db.Column(db.String, nullable = False)
     content = db.Column(db.String, nullable =False)
     author = db.Column(db.String, nullable =False)
